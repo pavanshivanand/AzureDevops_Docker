@@ -37,3 +37,12 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Azure Pass - Sponsorship (0f8eb2ea-d5c2-4d53-8145-974f6d23e2c5)'
+        appType: 'webAppContainer'
+        WebAppName: 'firstdockerpipeline'
+        DockerNamespace: 'firstdockerazuredevops.azurecr.io'
+        DockerRepository: 'firstdockerazuredevops'
+          
